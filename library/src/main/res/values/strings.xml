@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">library</string>
+    <string name="hint_unknown_api_error">Unknown Error</string>
+    <string name="hint_network_failure">Network Error.Please Try Again</string>
+</resources>
