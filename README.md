@@ -9,13 +9,13 @@
 ## use  
 - Activity extends `BaseActivity` and Fragment extends `BaseFragment` 
 - app Application extends `BaseApplication` - Activity or Fragment override method `onActivityReceiveEvent` or `onFragmentReceiveEvent`   by receiving your event ,then just deal with the event.
- - http request just use your api **call** `enqueue` and deliver a `BaseCallBack`.  
+- http request just use your api **call** `enqueue` and deliver a `BaseCallBack`.  
 
 eg.
 
-     ``` 
-    Call<ResponseBody> call = MyApplication.apiService.testHttp(); 
-    call.enqueue(new BaseCallBack<ResponseBody>(EventType.TESTHTTP));
-     ```  
+```
+Call<ResponseBody> call = MyApplication.apiService.testHttp();  
+call.enqueue(new BaseCallBack<ResponseBody>(EventType.TESTHTTP));
+```
 
 
