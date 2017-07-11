@@ -9,4 +9,8 @@
         <item name="android:backgroundDimEnabled">false</item>
 
     </style>
+    <style name="popup_anim_style">
+        <item name="android:windowEnterAnimation">@anim/showanim</item>
+        <item name="android:windowExitAnimation">@anim/exitanim</item>
+    </style>
 </resources>
