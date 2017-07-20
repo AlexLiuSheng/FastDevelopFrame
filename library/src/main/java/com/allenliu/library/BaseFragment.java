@@ -57,7 +57,9 @@ public class BaseFragment extends Fragment {
     public void showSnack(String content) {
         if (StringUtils.isEmpty(content))
             return;
-        SnackbarUtils.showShort(getActivity().findViewById(android.R.id.content), content, ContextCompat.getColor(getActivity(), R.color.white), ContextCompat.getColor(getActivity(), R.color.colorPrimary));
+        SnackbarUtils.with(getActivity().findViewById(android.R.id.content)).setBgColor(ContextCompat.getColor(mContext, R.color.colorPrimary)).setMessage(content).setMessageColor(ContextCompat.getColor(mContext, R.color.white)).show();
+
+        //SnackbarUtils.showShort(getActivity().findViewById(android.R.id.content), content, ContextCompat.getColor(getActivity(), R.color.white), ContextCompat.getColor(getActivity(), R.color.colorPrimary));
     }
 
     public void toast(String content) {

@@ -5,6 +5,8 @@ import android.content.Context;
 
 import com.blankj.utilcode.util.Utils;
 
+import org.greenrobot.eventbus.EventBus;
+
 /**
  * Created by allenliu on 2017/6/27.
  */

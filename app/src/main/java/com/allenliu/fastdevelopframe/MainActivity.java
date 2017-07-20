@@ -8,6 +8,8 @@ import com.allenliu.library.BaseActivity;
 import com.allenliu.library.eventbus.CommonEvent;
 import com.allenliu.library.net.BaseCallBack;
 
+import org.greenrobot.eventbus.EventBus;
+
 import java.io.IOException;
 
 import okhttp3.ResponseBody;
@@ -29,7 +31,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public void onActivityReceiveEvent(CommonEvent commonEvent) {
-        super.onActivityReceiveEvent(commonEvent);
+        //super.onActivityReceiveEvent(commonEvent);
         if (commonEvent.isSuccessful()) {
             switch (commonEvent.getEventType()) {
                 case EventType.TESTHTTP:
@@ -50,10 +52,18 @@ public class MainActivity extends BaseActivity {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btnTest:
-                showLoadingProgressBar();
-                Call<ResponseBody> call = MyApplication.apiService.testHttp();
-                call.enqueue(new BaseCallBack<ResponseBody>(EventType.TESTHTTP));
+//                showLoadingProgressBar();
+//                Call<ResponseBody> call = MyApplication.apiService.testHttp();
+//                call.enqueue(new BaseCallBack<ResponseBody>(EventType.TESTHTTP));
+                CommonEvent commonEvent=new CommonEvent();
+                commonEvent.setSuccessful(false);
+                commonEvent.setMessage("error");
+                commonEvent.setResponseCode(444);
+                EventBus.getDefault().post(commonEvent);
 
+                break;
+            case R.id.btnTest2:
+                getSupportFragmentManager().beginTransaction().add(R.id.container,new TestFragment()).commit();
                 break;
         }
     }

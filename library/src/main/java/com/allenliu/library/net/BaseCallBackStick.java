@@ -13,10 +13,10 @@ import retrofit2.Response;
  * Created by allenliu on 2017/5/26.
  */
 
-public class BaseCallBack<T> implements Callback<T> {
+public class BaseCallBackStick<T> implements Callback<T> {
     private int eventType;
 
-    public BaseCallBack(int eventType) {
+    public BaseCallBackStick(int eventType) {
         this.eventType = eventType;
     }
 
@@ -45,7 +45,7 @@ public class BaseCallBack<T> implements Callback<T> {
 
             commonEvent.setData(null);
         }
-        EventBus.getDefault().post(commonEvent);
+        EventBus.getDefault().postSticky(commonEvent);
     }
 
     @Override
@@ -56,6 +56,6 @@ public class BaseCallBack<T> implements Callback<T> {
         commonEvent.setSuccessful(false);
         //commonEvent.setMessage();
         commonEvent.setMessage("Network Error.Please Try Again");
-        EventBus.getDefault().post(commonEvent);
+        EventBus.getDefault().postSticky(commonEvent);
     }
 }

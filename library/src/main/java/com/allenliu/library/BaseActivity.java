@@ -19,7 +19,6 @@ import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
 
-
 /**
  * Created by cqing on 30/3/17.
  */
@@ -38,7 +37,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         mActivity = this;
         if (!EventBus.getDefault().isRegistered(this))
             EventBus.getDefault().register(this);
-       // init();
+        // init();
     }
 
     @Override
@@ -70,8 +69,8 @@ public abstract class BaseActivity extends AppCompatActivity {
     public void showSnack(String content) {
         if (StringUtils.isEmpty(content))
             return;
-
-        SnackbarUtils.showShort(findViewById(android.R.id.content), content, ContextCompat.getColor(mActivity, R.color.white), ContextCompat.getColor(mActivity, R.color.colorPrimary));
+        SnackbarUtils.with(findViewById(android.R.id.content)).setBgColor(ContextCompat.getColor(mActivity, R.color.colorPrimary)).setMessage(content).setMessageColor(ContextCompat.getColor(mActivity, R.color.white)).show();
+       //  SnackbarUtils.showShort(findViewById(android.R.id.content), content, ContextCompat.getColor(mActivity, R.color.white), ContextCompat.getColor(mActivity, R.color.colorPrimary));
     }
 
     public void toast(String content) {
